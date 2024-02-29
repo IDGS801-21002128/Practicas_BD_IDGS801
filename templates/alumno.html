@@ -1,0 +1,36 @@
+{% extends "layout2.html" %}
+{%block container%}
+{%import "macro.html" as macros%}
+
+<form action="" method="POST" novalidate>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.nombre,class="form-control")}}
+        </div>          
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.apaterno,class="form-control")}}
+        </div>          
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.amaterno,class="form-control")}}
+        </div>          
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.numeroCelular,class="form-control")}}
+        </div>          
+    </div>
+
+    <input type="submit" id="btn1" value="Registrar">
+</form>
+
+<p>Nombre: {{nombre}}</p>
+<p>paterno: {{apaterno}}</p>
+<p>materno: {{amaterno}}</p>
+<p>Numero Celular: {{numeroCelular}}</p>
+ 
+{%endblock%}
+  
