@@ -1,0 +1,389 @@
+/*ANIMACION DEL NAV Y MARGENES*/
+body {
+    padding-top: 100px; /* Asegura que haya suficiente espacio para el encabezado */
+}
+#site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1000; /* Asegúrate de que el encabezado esté en la parte superior */
+    transform: translateY(-100%); /* Ocultar el encabezado inicialmente */
+    transition: transform 0.5s ease; /* Transición para la animación de entrada y salida */
+}
+/* Clase para animación de entrada */
+.show-animation {
+    transform: translateY(0);
+}
+/* Clase para animación de salida */
+.hide-animation {
+    transform: translateY(-100%);
+}
+
+
+/*ANIMACION DE LAS COLUMNAS*/
+.text-column {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Animación para la columna de imagen */
+.image-column {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Cuando se activa la clase "show" */
+.text-column.show,
+.image-column.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.shadow-bottom {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Ajusta los valores según tus preferencias */
+}
+.consultoria-text {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto según tus preferencias */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333; /* Cambia el color del texto según tu preferencia */
+    padding: 10px 20px; /* Agrega un relleno alrededor del texto */
+    border-radius: 5px; /* Agrega esquinas redondeadas al contenedor */
+    background-color: #f0f0f0; /* Agrega un color de fondo al contenedor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega un sombreado suave */
+}
+.servicios-text {
+  font-size: 1.5rem; /* Ajusta el tamaño del texto según tus preferencias */
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333; /* Cambia el color del texto según tu preferencia */
+  padding: 10px 20px; /* Agrega un relleno alrededor del texto */
+  border-radius: 10px 10px 0 0; /* Agrega esquinas redondeadas al contenedor */
+  background-color: #f0f0f0; /* Agrega un color de fondo al contenedor */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega un sombreado suave */
+  text-align: left;
+}
+
+.convencer-text{
+  font-size: 2.5rem; /* Ajusta el tamaño del texto según tus preferencias */
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333; /* Cambia el color del texto según tu preferencia */
+  padding: 10px 20px; /* Agrega un relleno alrededor del texto */
+  border-radius: 10px; /* Agrega esquinas redondeadas al contenedor */
+  background-color: #f0f0f0; /* Agrega un color de fondo al contenedor */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega un sombreado suave */
+  text-align: left;
+}
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin: 0 20px; /* Aumentar el espacio entre los elementos de la lista */
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 10px 15px; /* Ajuste según sea necesario */
+    text-decoration: none; /* Eliminar cualquier subrayado */
+    color: #000; /* Color de texto */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra de texto para mejorar la legibilidad */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    text-decoration: underline; /* Subrayado solo al hacer hover */
+    text-decoration-color: #007bff; /* Color de subrayado al hacer hover, puede ajustarse */
+    text-decoration-thickness: 2px; /* Grosor del subrayado */
+    text-underline-offset: 3px; /* Distancia del subrayado al texto */
+  }
+  
+  /* Diseño responsivo para dispositivos móviles */
+  @media (max-width: 768px) {
+    .navbar-collapse {
+      background-color: #f8f9fa; /* Fondo para menú colapsado */
+    }
+  
+    .navbar-nav {
+      flex-direction: column; /* Apilar enlaces verticalmente */
+    }
+  
+    .nav-item {
+      margin: 5px 0; /* Reducir margen entre enlaces */
+    }
+  }
+  
+  
+  .partSeccion {
+    filter: drop-shadow(0px 10px 20px rgba(0, 1, 2, 5)); /* Sombra hacia arriba y hacia abajo */
+}
+
+
+  .imgIndex {
+    filter: drop-shadow(15px 5px 5px black);
+    /*box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.3);*/
+  }
+  .scroll-downs {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+  
+  .mousey {
+    width: 25px;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: border-box;
+  }
+  
+  .scroller {
+    width: 3px;
+    height: 10px;
+    margin-left: 11px;
+    background-color: black;
+    border-radius: 25%;
+    animation: scroll 2s infinite;
+  }
+  
+  @keyframes scroll {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  
+  .Servicios{
+    align-content: center;
+    font-size: 1.5rem; /* Ajusta el tamaño del texto según tus preferencias */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333; /* Cambia el color del texto según tu preferencia */
+    padding: 10px 20px; /* Agrega un relleno alrededor del texto */
+    border-radius: 5px; /* Agrega esquinas redondeadas al contenedor */
+    background-color: #f0f0f0; /* Agrega un color de fondo al contenedor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega un sombreado suave */
+}
+
+.containerC {
+  position: relative;
+  margin-top: 50px; /* Ajusta el margen superior según sea necesario */
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad y el color de la capa de fondo */
+}
+
+.Servicios {
+  color: white; /* Cambiado a blanco para mayor contraste */
+  font-weight: bold; /* Añadido para mayor énfasis */
+}
+.carousel-item img {
+  border-radius: 0 0 10px 10px ; /* Añade bordes redondeados a las imágenes del carrusel */
+  max-height: 600px; /* Establece una altura máxima para las imágenes del carrusel */
+  width: auto; /* Ajusta el ancho automáticamente para mantener la proporción */
+  margin: 0 auto; /* Centra horizontalmente las imágenes dentro de los contenedores del carrusel */
+  max-width: 100%; /* Establece un ancho máximo para las imágenes */
+  position: relative; /* Establece la posición relativa para las imágenes */
+  left: 0; /* Asegura que la posición inicial de las imágenes sea correcta */
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo de los botones del carrusel */
+  border-radius: 50%; /* Añade bordes redondeados a los botones del carrusel */
+  width: 40px; /* Ajusta el ancho de los botones del carrusel */
+  height: 40px; /* Ajusta la altura de los botones del carrusel */
+  top: 50%; /* Ajusta la posición vertical de los botones del carrusel */
+  transform: translateY(-50%); /* Centra verticalmente los botones del carrusel */
+}
+
+.carousel-control-prev {
+  left: 10px; /* Ajusta la posición horizontal del botón de control previo */
+}
+
+.carousel-control-next {
+  right: 10px; /* Ajusta la posición horizontal del botón de control siguiente */
+}
+
+
+.gradient-text {
+  background-image: radial-gradient(circle at -19.64% 37.72%,#3cf2f2 50%, #00e7f3 57.14%, #00ddf6 64.29%, #00d4fa 71.43%, #00cbff 78.57%, #00c3ff 85.71%, #00bbff 92.86%, #00b3ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  font-size: 1.5em;
+}
+@media (max-width: 768px) {
+  .image-column img {
+    width: 100%;
+  }
+}
+h1 {
+  font-size: 2em;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+.card {
+  border: none;
+}
+
+
+/*FOTTER*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #08c4fc;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("../../img/ol.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 20s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 20s linear infinite !important;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+/*NOSOTROS*/
+#carNosotros {
+  border-radius: 10px 10px 0 0; /* Agrega esquinas redondeadas al contenedor */
+  background-color: #f0f0f0; /* Agrega un color de fondo al contenedor */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega un sombreado suave */
+}
+
+.embed-responsive-16by9 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.embed-responsive-item {
+  width: 100%;
+  height: 500px; /* Ajusta esto según la altura deseada */
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#cardContacto{
+      margin-top: 100px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
