@@ -1,0 +1,123 @@
+{% extends "layout2.html" %}
+{% block container %}
+{% import "macro.html" as macros %}
+
+<div class="container mt-5 mb-4">
+    <h2 class="text-center mb-4">Formulario de Pedido de Pizza</h2>
+    <form action="/pedido" method="POST" novalidate>
+        <div class="row mb-3">
+            <!-- Nombre del cliente -->
+            <div class="col-md-4">
+                {{ macros.camposNuevos(form.nombre, class="form-control") }}
+            </div>
+            <!-- Dirección del cliente -->
+            <div class="col-md-4">
+                {{ macros.camposNuevos(form.direccion, class="form-control") }}
+            </div>
+            <!-- Teléfono del cliente -->
+            <div class="col-md-4">
+                {{ macros.camposNuevos(form.telefono, class="form-control") }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <!-- Tamaño de la Pizza -->
+            <div class="col-md-4">
+                {{ macros.camposNuevos(form.tamañoPizza, class="form-control") }}
+            </div>
+            <!-- Ingredientes para la Pizza -->
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="jamon">$10</label>
+                        {{ macros.camposNuevos(form.jamon, class="form-check-input") }}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="piña">$10</label>
+                        {{ macros.camposNuevos(form.piña, class="form-check-input") }}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="champiñon">$10</label>
+                        {{ macros.camposNuevos(form.champiñon, class="form-check-input") }}
+                    </div>
+                </div>
+            </div>
+            <!-- Número de Pizzas -->
+            <div class="col-md-4">
+                {{ macros.camposNuevos(form.numPizza, class="form-control") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <!-- Fecha de Compra -->
+            <div class="col-md-8">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-primary">Confirmar Pedido</button>                </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block container2 %}
+{% import "macro.html" as macros %}
+
+<div class="container mt-5 mb-4">
+    <h2 class="text-center mb-4">Lista de Pedidos</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tamaño de Pizza</th>
+                <th>Ingredientes</th>
+                <th>Número de Pizzas</th>
+                <th>Sub Total</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{ pedido.tamañoPizza }}</td>
+                <td>{{ pedido.ingredientes }}</td>
+                <td>{{ pedido.numPizza }}</td>
+                <td>{{ pedido.precioTotal }}</td>
+                <td><a href="/eliminar_pedido/{{ pedido.id }}" class="btn btn-danger">Eliminar</a></td>
+                <td><a href="/modificar_pedido/{{ pedido.id }}" class="btn btn-warning">Modificar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container mt-5 mb-4">
+    <h2 class="text-center mb-4">Total de Subtotales de Pedidos</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nombre del Cliente</th>
+                <th>Subtotal del Pedido</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{ pedido.nombre }}</td>
+                <td>{{ pedido.precioTotal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><strong>Total de Subtotales:</strong></td>
+                <td><strong>{{ total_subtotales }}</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="container mt-5 mb-4">
+    <h2 class="text-center mb-4">Terminar</h2>
+    <form action="/terminar" method="POST">
+        <input type="hidden" name="total_pedidos" value="{{ total_pedidos }}">
+        <input type="hidden" name="total_dinero" value="{{ total_dinero }}">
+        <button type="submit" class="btn btn-primary">Terminar</button>
+    </form>
+</div>
+{% endblock %}
