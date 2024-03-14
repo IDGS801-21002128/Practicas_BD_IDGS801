@@ -1,0 +1,30 @@
+{% extends "layout2.html" %}
+
+{% block container %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Confirmación de Pedido</h2>
+    <div class="alert alert-success" role="alert">
+        {{ mensaje_confirmacion }}
+    </div>
+    <p class="text-center">Haz clic en el siguiente botón para realizar otro pedido o espera unos segundos para ser redirigido:</p>
+    <div class="text-center">
+        <a href="{{ url_for('realizar_pedido') }}" class="btn btn-primary" id="realizar_otro_pedido">Realizar otro pedido</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById("realizar_otro_pedido").addEventListener("click", function(event) {
+        event.preventDefault(); 
+        var confirmacion = confirm("¿Estás seguro de que deseas realizar otro pedido?");
+        if (confirmacion) {
+            window.location.href = "{{ url_for('realizar_pedido') }}";
+        }
+    });
+
+    setTimeout(function() {
+        window.location.href = "{{ url_for('realizar_pedido') }}";
+    }, 5000); 
+</script>
+{% endblock %}

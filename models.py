@@ -25,7 +25,13 @@ class Pedido(db.Model):
     telefono = db.Column(db.String(15))
     fechaCompra = db.Column(db.Date)
     tamañoPizza = db.Column(db.String(50))
-    ingredientes = db.Column(db.String(150))  # Cambiado a 150 para manejar múltiples ingredientes
+    ingredientes = db.Column(db.String(150)) 
     numPizza = db.Column(db.Integer)
-    precioTotal = db.Column(db.Float)  # Se agrega un campo para el precio total
+    precioTotal = db.Column(db.Float)  
     created_date = db.Column(db.DateTime, default=datetime.now)
+
+class PedidoTotal(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre_cliente = db.Column(db.String(100), nullable=False)
+    total_pedidos = db.Column(db.Float, nullable=False)
+    fecha_pedido = db.Column(db.DateTime, nullable=False)

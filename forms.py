@@ -23,11 +23,12 @@ class UserForm(Form):
 
 class PedidoForm(Form):
     id = IntegerField('id', [validators.number_range(min=1, max=20, message='Valor no válido')])
-    nombre = StringField('Nombre Completo', validators=[DataRequired(), Length(min=2, max=100)])
-    direccion = StringField('Dirección', validators=[DataRequired(), Length(min=2, max=200)])
-    telefono = StringField('Teléfono', validators=[DataRequired(), Length(min=7, max=15)])
+    nombre = StringField('', validators=[DataRequired(), Length(min=2, max=100)])
+    direccion = StringField('', validators=[DataRequired(), Length(min=2, max=200)])
+    telefono = StringField('', validators=[DataRequired(), Length(min=7, max=15)])
     tamañoPizza = RadioField('Tamaño de la Pizza', choices=[('pequena', 'Pequeña $40'), ('mediana', 'Mediana $80'), ('grande', 'Grande $120')], validators=[DataRequired()])
     jamon = BooleanField('Jamón')
     piña = BooleanField('Piña')
+    fecha = DateField()
     champiñon = BooleanField('Champiñón')
     numPizza = IntegerField('Número de Pizzas', validators=[DataRequired()])
